@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ubuntu
+
+inputs:
+- name: concourse
+- name: fly-rc
+- name: endpoint-info
+
+params:
+  WEB_IP:
+  PIPELINE_NAME:
+
+run:
+  path: concourse/ci/scripts/verify-uber-pipeline

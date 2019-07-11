@@ -1,0 +1,25 @@
+#!/bin/bash
+# vim: set ft=sh
+
+set -e
+
+export GOPATH=${PWD}/concourse
+export PATH=${PWD}/concourse/bin:$PATH
+
+export GEM_HOME=${PWD}/gems
+export BUNDLE_PATH=${PWD}/gems
+
+export ATC_URL=http://$(cat endpoint-info/instance_ip):8080
+
+go install github.com/concourse/fly
+
+export DISPLAY=:99.0
+Xvfb $DISPLAY -ac +extension RANDR &
+trap "kill $!" EXIT
+
+cd concourse/src/github.com/concourse/web/acceptance/
+bundle
+if ! bundle exec parallel_rspec spec -o "--tag ~perf"; then
+  echo "************ RERUNNING FAILURES ************"
+  bundle exec rspec $(grep "rspec ./spec" /tmp/failing_specs.log | cut -d' ' -f2 | grep -o ".*:[0-9]\+")
+fi

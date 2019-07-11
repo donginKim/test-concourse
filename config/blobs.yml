@@ -1,0 +1,60 @@
+btrfs/btrfs-tools-4.4.tar.gz:
+  size: 3062268
+  object_id: 9c8e0f55-d9e0-4a6a-51f3-1b175f3b2551
+  sha: 94279d010ebd4829396af9212f9c1e73e75d914e
+golang/golang-linux-amd64-1.10.1.tar.gz:
+  size: 119914627
+  object_id: 68609410-f00c-495f-7fae-5ed2b1226118
+  sha: 0b5b278a1d785812e864158ca0bf84056cb9303c
+resources/bosh-deployment-resource-2ec4621.tar.gz:
+  size: 16087009
+  object_id: 9130c94e-ddee-4f97-684f-1e0aa80c4ee0
+  sha: acb47f79f4423f35bfe9247022b38c893a063d3a
+resources/bosh-io-release-resource-b414c5e.tar.gz:
+  size: 5846245
+  object_id: 53dd8845-1ee8-4d70-79b0-e5ddd2da943f
+  sha: 7ef8d55c8ffb127115c0cfb1182c8509fb54f021
+resources/bosh-io-stemcell-resource-c144c16.tar.gz:
+  size: 9831860
+  object_id: 21e74c30-2a5c-473d-65d4-7e9b72c81b11
+  sha: e3a9d17a841676c4e0075f3b648a88f8f75c7c01
+resources/cf-resource-79636b6.tar.gz:
+  size: 20915916
+  object_id: cd4ca250-80fe-46f3-68db-aad3879aeb4a
+  sha: 778174b9d0f91e4e8853ac51584ef82568022b2d
+resources/docker-image-resource-4e54565.tar.gz:
+  size: 58740802
+  object_id: 39157305-90d2-4e71-7700-d8d671679c62
+  sha: afd962224535c88f533e8afad0e99bcd26403261
+resources/git-resource-f49ec29.tar.gz:
+  size: 24630672
+  object_id: 5c570b37-cef7-4d81-6700-439ec4cad77e
+  sha: f663b9b06e04b77a988edd4662c5262be4e41e9e
+resources/github-release-resource-8bc116b.tar.gz:
+  size: 13361203
+  object_id: 9033b3ac-2237-4515-6e0a-8371f43cc02d
+  sha: 331fa6ddb19de420d978afb3a41e6ddbc27188dc
+resources/hg-resource-681bb3d.tar.gz:
+  size: 29702916
+  object_id: 891d1a19-4877-498c-7ff9-9810e74a35a4
+  sha: 4d08c2eebe3dc5211733acaa829338f112aaa05e
+resources/pool-resource-7bfa737.tar.gz:
+  size: 24462999
+  object_id: 38fb94a1-161c-4c73-5c3f-14680568f9c4
+  sha: 33149b371397781ffc0b9ff7d30314565bb11884
+resources/s3-resource-a0ae177.tar.gz:
+  size: 15205474
+  object_id: f4c1f8e7-c362-424b-4d02-1acc6b703447
+  sha: 54f081bc7779b6cd180b44afd625d00cfe91ca8c
+resources/semver-resource-0cb9fc0.tar.gz:
+  size: 25986782
+  object_id: 5ee470c5-93a3-46fa-588e-0a4165c372a2
+  sha: 714c48d25a67fc0ca75416c42f85ca862f759c46
+resources/time-resource-e5a6a93.tar.gz:
+  size: 7518318
+  object_id: 0a376d95-0aab-4b57-570b-8c7222d9029d
+  sha: 210cd426fc36d50bcd005c8ca56cfdc4af87e7d5
+resources/tracker-resource-b18b7a9.tar.gz:
+  size: 16167912
+  object_id: 62d78366-351b-4df1-6792-74c06033804b
+  sha: a398faedd014b5dd7a9cef3f144b37ede9d149a1

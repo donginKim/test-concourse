@@ -1,0 +1,15 @@
+#!/bin/bash
+# vim: set ft=sh
+
+set -e
+
+readonly WEB_IP=${WEB_IP:-$(cat ./endpoint-info/instance_ip)}
+readonly ATC_URL="http://$WEB_IP:8080"
+
+export GOPATH=${PWD}/concourse
+export PATH=${PWD}/concourse/bin:$PATH
+
+go install github.com/onsi/ginkgo/ginkgo
+
+cd concourse/src/github.com/concourse/testflight/
+ginkgo -r -nodes=3 -race "$@"

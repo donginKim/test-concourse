@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e -u
+
+ROOT=$(cd $(dirname $0)/.. && pwd)
+
+DEVDIR=/tmp/concourse-dev
+KEYSDIR=$DEVDIR/keys
+
+export GOPATH=$ROOT
+export PATH=$ROOT/bin:$PATH
+
+go install github.com/concourse/atc/cmd/atc
+
+pg_port=${POSTGRES_PORT:-6543}
+external_ip="$($ROOT/dev/util/external-ip)"
+
+until createdb -U postgres -p ${pg_port} atc 2>&1 | grep 'already exists' >/dev/null; do
+  echo creating database...
+  sleep 1
+done
+
+# run from atc dir so that an atc built with 'make DEV=-dev' can find the assets
+cd $ROOT/src/github.com/concourse/atc
+
+atc \
+  --no-really-i-dont-want-any-auth \
+  --log-level debug \
+  --external-url "http://${external_ip}:8080" \
+  --session-signing-key $KEYSDIR/web/session_signing_key \
+  --postgres-data-source "user=postgres dbname=atc port=${pg_port} sslmode=disable" \
+  "$@"

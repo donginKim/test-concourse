@@ -1,0 +1,22 @@
+#!/bin/bash
+# vim: set ft=sh
+
+set -e -x
+
+readonly WEB_IP=${WEB_IP:-$(cat ./endpoint-info/instance_ip)}
+
+test -n "$WEB_IP"
+test -n "$PIPELINE_NAME"
+
+install fly-rc/fly_linux_amd64 /usr/local/bin/fly
+
+until fly -t local login -c "http://$WEB_IP:8080" ; do sleep 2; done
+
+fly -t local sync
+
+fly -t local set-pipeline -n -p "$PIPELINE_NAME" -c concourse/ci/pipelines/uber-pipeline.yml
+
+fly -t local unpause-pipeline -p "$PIPELINE_NAME"
+
+fly -t local trigger-job -w -j "$PIPELINE_NAME/test-job"
+
